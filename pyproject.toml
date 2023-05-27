@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "boyadl"
-version = "0.0.1"
+version = "0.1.0"
 description = "Download mp3 files for Boya Chinese books"
 authors = ["Jean-Francois Zinque <16199817+jeffzi@users.noreply.github.com>"]
 license = "MIT"
