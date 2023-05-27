@@ -140,7 +140,6 @@ def main(
         typer.Option(
             "--output",
             "-o",
-            exists=True,
             file_okay=False,
             dir_okay=True,
             writable=True,
@@ -169,6 +168,7 @@ def main(
         for lesson in data["tree_list"]
     }
 
+    output.mkdir(parents=True, exist_ok=True)
     _download_all_files(lessons, output, parallel)
     print(f"Downloaded {len(lessons)} mp3 files to {output.resolve()} ✨ 🍰 ✨")
 
