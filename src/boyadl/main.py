@@ -134,7 +134,7 @@ def _download_all_files(lessons: dict[str, str], output: Path, parallel: int) ->
 
 @app.command()  # type: ignore
 def main(
-    url: str,
+    url: Annotated[str, typer.Argument(help="Url from QR code on the back cover.")],
     output: Annotated[
         Path,
         typer.Option(
