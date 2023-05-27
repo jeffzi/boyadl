@@ -7,7 +7,6 @@ from concurrent.futures import ThreadPoolExecutor
 from io import BytesIO
 from multiprocessing.managers import DictProxy
 from pathlib import Path
-from urllib.request import urlopen
 
 import httpx
 import typer
@@ -150,7 +149,7 @@ def main(
     parallel: Annotated[int, typer.Option(help="Number of concurrent download.")] = 4,
 ) -> None:
     """Download mp3 files for Boya Chinese books."""
-    content = urlopen(url).read().decode()
+    content = httpx.get(url).text
     pattern = re.compile(r"^var data\s?=\s?(\{.*play_url.*http.*\})", re.MULTILINE)
     raw_data = pattern.findall(content)
 
