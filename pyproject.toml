@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "boyadl"
+version = "0.0.1"
+description = "Download mp3 files for Boya Chinese books"
+authors = ["Jean-Francois Zinque <16199817+jeffzi@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/jeffzi/boyadl"
+repository = "https://github.com/jeffzi/boyadl"
+
+[tool.poetry.scripts]
+boyadl = "boyadl.main:app"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer = "^0.9.0"
+pydub = "^0.25.1"
+
+[tool.isort]
+float_to_top = true
+profile = "black"
+force_single_line = true
+lines_after_imports = 2
+
+[tool.mypy]
+strict = true
+warn_unreachable = true
+pretty = true
+show_column_numbers = true
+show_error_context = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
